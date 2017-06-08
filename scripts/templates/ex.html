@@ -1,0 +1,42 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>情報基礎2 | 中間試験第<%= id %>問</title>
+  <link href="https://cdn.rawgit.com/mochajs/mocha/2.2.5/mocha.css" rel="stylesheet" />
+  <link href="base.css" rel="stylesheet">
+  <script src="https://cdn.rawgit.com/mochajs/mocha/2.2.5/mocha.js"></script>
+  <script src="js/<%= id %>.js"></script>
+</head>
+
+<body>
+  <article>
+    <header>
+      <h1>問題<%= id %>：次の関数を<code class="path">docs/js/<%=id%>.js</code>に実装してください</h1>      
+    </header>
+    <section>
+      <div id="mocha"></div>
+    </section>
+    <footer>
+      <h2>その他の問題</h2>
+      <ul>
+        <% for(const exercise of all){ %>
+          <li>
+            <a href="ex<%= exercise.id %>.html">
+            問題<%= exercise.id %>
+          </a>
+          </li>
+          <% } %>
+      </ul>
+    </footer>
+    <script>
+      mocha.setup('bdd')
+    </script>
+    <script src="specs/spec<%= id %>.js"></script>
+    <script>
+      mocha.run();
+    </script>
+</body>
+
+</html>
